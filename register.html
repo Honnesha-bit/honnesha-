@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AeroWorld | User Registration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Montserrat',sans-serif;
+}
+
+/* ================= BODY ================= */
+body{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1488646953014-85cb44e25828");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ================= REGISTER BOX ================= */
+.register-box{
+  width:100%;
+  max-width:420px;
+  background:rgba(11,15,26,0.9);
+  backdrop-filter:blur(15px);
+  border-radius:30px;
+  padding:45px 35px;
+  box-shadow:0 30px 60px rgba(0,0,0,0.6);
+  animation:fadeUp 1.2s ease;
+}
+
+/* ================= TEXT ================= */
+.register-box h2{
+  text-align:center;
+  font-size:32px;
+  color:#4dd2ff;
+}
+
+.register-box p{
+  text-align:center;
+  font-size:14px;
+  margin:10px 0 35px;
+  opacity:0.85;
+}
+
+/* ================= INPUTS ================= */
+.input-group{
+  position:relative;
+  margin-bottom:25px;
+}
+
+.input-group input{
+  width:100%;
+  padding:14px 12px;
+  background:transparent;
+  border:none;
+  border-bottom:2px solid #444;
+  color:#fff;
+  font-size:15px;
+  outline:none;
+}
+
+.input-group label{
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#aaa;
+  pointer-events:none;
+  transition:0.3s;
+}
+
+/* Floating label */
+.input-group input:focus + label,
+.input-group input:valid + label{
+  top:-6px;
+  font-size:12px;
+  color:#4dd2ff;
+}
+
+/* ================= BUTTON ================= */
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  background:#4dd2ff;
+  color:#000;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#2bb6e8;
+}
+
+/* ================= LOGIN LINK ================= */
+.login-link{
+  margin-top:20px;
+  text-align:center;
+  font-size:14px;
+}
+
+.login-link a{
+  color:#4dd2ff;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:480px){
+  .register-box{
+    padding:35px 25px;
+  }
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="register-box">
+  <h2>Create Account</h2>
+  <p>Join AeroWorld & explore the globe 🌍</p>
+
+  <form>
+    <div class="input-group">
+      <input type="text" required>
+      <label>Full Name</label>
+    </div>
+
+    <div class="input-group">
+      <input type="email" required>
+      <label>Email Address</label>
+    </div>
+
+    <div class="input-group">
+      <input type="tel" required>
+      <label>Mobile Number</label>
+    </div>
+
+    <div class="input-group">
+      <input type="password" required>
+      <label>Password</label>
+    </div>
+
+    <div class="input-group">
+      <input type="password" required>
+      <label>Confirm Password</label>
+    </div>
+
+   <button type="submit"><a href="index.html">Registe</a></button>
+
+    <div class="login-link">
+      Already have an account?
+      <a href="index.html">Login</a>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

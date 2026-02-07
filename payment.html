@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AeroWorld | Payment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Montserrat',sans-serif;
+}
+
+/* ===== BODY ===== */
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#0b0f1a,#11162a);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ===== PAYMENT BOX ===== */
+.payment-box{
+  width:100%;
+  max-width:420px;
+  background:#0b0f1a;
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 25px 50px rgba(0,0,0,0.6);
+  color:#fff;
+}
+
+/* ===== TITLE ===== */
+.payment-box h2{
+  text-align:center;
+  color:#4dd2ff;
+  margin-bottom:10px;
+}
+
+.payment-box p{
+  text-align:center;
+  font-size:14px;
+  opacity:0.85;
+  margin-bottom:25px;
+}
+
+/* ===== PAYMENT OPTIONS ===== */
+.payment-methods{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:25px;
+}
+
+.payment-methods label{
+  background:#11162a;
+  padding:10px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:14px;
+  border:1px solid transparent;
+}
+
+.payment-methods input{
+  display:none;
+}
+
+.payment-methods input:checked + label{
+  border-color:#4dd2ff;
+  color:#4dd2ff;
+}
+
+/* ===== INPUTS ===== */
+.input-group{
+  margin-bottom:18px;
+}
+
+.input-group label{
+  font-size:13px;
+  opacity:0.8;
+}
+
+.input-group input{
+  width:100%;
+  margin-top:6px;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#11162a;
+  color:#fff;
+  outline:none;
+}
+
+/* ===== ROW ===== */
+.row{
+  display:flex;
+  gap:12px;
+}
+
+/* ===== BUTTON ===== */
+button{
+  width:100%;
+  padding:14px;
+  margin-top:10px;
+  border:none;
+  border-radius:30px;
+  background:#4dd2ff;
+  color:#000;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  text-decoration: none;
+}
+a{
+  color:#000;
+  text-decoration:none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:420px){
+  .row{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="payment-box">
+  <h2>Payment</h2>
+  <p>Secure your travel booking</p>
+
+  <!-- Payment Methods -->
+  <div class="payment-methods">
+    <input type="radio" name="pay" id="card" checked required>
+    <label for="card">💳 Card</label>
+
+    <input type="radio" name="pay" id="upi" required>
+    <label for="upi">📱 UPI</label>
+
+    <input type="radio" name="pay" id="netbanking">
+    <label for="netbanking">🏦 NetBanking</label>
+  </div>
+
+  <!-- Card Details -->
+  <form>
+    <div class="input-group">
+      <label>Card Holder Name</label>
+      <input type="text" placeholder="enter the name ">
+    </div>
+
+    <div class="input-group">
+      <label>Card Number</label>
+      <input type="text" placeholder="enter the card number">
+    </div>
+
+    <div class="row">
+      <div class="input-group">
+        <label>Expiry</label>
+        <input type="text" placeholder="MM/YY">
+      </div>
+
+      <div class="input-group">
+        <label>CVV</label>
+        <input type="password" placeholder="enter the cvv">
+      </div>
+    </div>
+
+    <button type="submit"><a href="index.html">pay</a></button>
+  </form>
+</div>
+
+</body>
+</html>
