@@ -2,180 +2,84 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Honnesha Café | Checkout</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Google Font -->
+<title>Honnesha Café | Checkout</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
-/* ===== RESET ===== */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Montserrat',sans-serif;
-}
-
-/* ===== BODY ===== */
-body{
-  min-height:100vh;
-  background:linear-gradient(135deg,#24150f,#4b2e22);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-/* ===== PAYMENT BOX ===== */
-.payment-box{
-  width:100%;
-  max-width:420px;
-  background:#fffdf9;
-  padding:35px;
-  border-radius:20px;
-  box-shadow:0 25px 50px rgba(0,0,0,0.6);
-  color:#2a1a13;
-}
-
-/* ===== TITLE ===== */
-.payment-box h2{
-  text-align:center;
-  color:#c77735;
-  margin-bottom:10px;
-}
-
-.payment-box p{
-  text-align:center;
-  font-size:14px;
-  opacity:0.85;
-  margin-bottom:25px;
-}
-
-/* ===== PAYMENT OPTIONS ===== */
-.payment-methods{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:25px;
-}
-
-.payment-methods label{
-  background:#faf7f2;
-  padding:10px 14px;
-  border-radius:12px;
-  cursor:pointer;
-  font-size:14px;
-  border:1px solid transparent;
-}
-
-.payment-methods input{
-  display:none;
-}
-
-.payment-methods input:checked + label{
-  border-color:#c77735;
-  color:#c77735;
-}
-
-/* ===== INPUTS ===== */
-.input-group{
-  margin-bottom:18px;
-}
-
-.input-group label{
-  font-size:13px;
-  opacity:0.8;
-}
-
-.input-group input{
-  width:100%;
-  margin-top:6px;
-  padding:12px;
-  border:none;
-  border-radius:10px;
-  background:#faf7f2;
-  color:#2a1a13;
-  outline:none;
-}
-
-/* ===== ROW ===== */
-.row{
-  display:flex;
-  gap:12px;
-}
-
-/* ===== BUTTON ===== */
-button{
-  width:100%;
-  padding:14px;
-  margin-top:10px;
-  border:none;
-  border-radius:30px;
-  background:#c77735;
-  color:#000;
-  font-size:16px;
-  font-weight:600;
-  cursor:pointer;
-  text-decoration: none;
-}
-a{
-  color:#000;
-  text-decoration:none;
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:420px){
-  .row{
-    flex-direction:column;
-  }
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+body{min-height:100vh;background:linear-gradient(135deg,#24150f,#4b2e22);display:flex;align-items:center;justify-content:center;padding:24px;}
+.checkout-box{width:100%;max-width:460px;background:#fffdf9;padding:35px;border-radius:20px;box-shadow:0 25px 50px rgba(0,0,0,0.35);color:#2a1a13;}
+.checkout-box h1{text-align:center;color:#c77735;margin-bottom:10px;font-size:30px;}
+.checkout-box p{text-align:center;font-size:14px;opacity:0.85;margin-bottom:25px;}
+fieldset{border:0;margin:0 0 22px;padding:0;}
+legend{font-size:13px;font-weight:700;margin-bottom:10px;color:#4b2e22;}
+.payment-methods,.order-types{display:flex;gap:10px;flex-wrap:wrap;}
+.payment-methods label,.order-types label{background:#faf7f2;padding:10px 14px;border-radius:12px;cursor:pointer;font-size:14px;border:1px solid rgba(75,46,34,.14);}
+input[type="radio"]{accent-color:#c77735;}
+.input-group{margin-bottom:18px;}
+.input-group label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;opacity:0.85;}
+.input-group input,.input-group textarea{width:100%;padding:12px;border:1px solid rgba(75,46,34,.14);border-radius:10px;background:#faf7f2;color:#2a1a13;outline:none;}
+.input-group textarea{min-height:92px;resize:vertical;}
+.row{display:flex;gap:12px;}.row .input-group{flex:1;}
+button{width:100%;padding:14px;margin-top:10px;border:none;border-radius:30px;background:#c77735;color:#fff;font-size:16px;font-weight:700;cursor:pointer;}
+button:hover{background:#a85f28;}
+.back-link{display:block;text-align:center;margin-top:16px;color:#4b2e22;font-weight:700;text-decoration:none;}
+@media(max-width:420px){.row{flex-direction:column;}.checkout-box{padding:28px 22px;}}
 </style>
 </head>
-
 <body>
+<div class="checkout-box">
+  <h1>Café Checkout</h1>
+  <p>Choose pickup, delivery, or dine-in and pay securely.</p>
 
-<div class="payment-box">
-  <h2>Café Checkout</h2>
-  <p>Choose pickup, delivery, or dine-in and pay securely</p>
+  <form onsubmit="window.location.href = 'index.html'; return false;">
+    <fieldset>
+      <legend>Order type</legend>
+      <div class="order-types">
+        <label><input type="radio" name="order-type" value="pickup" checked> Pickup</label>
+        <label><input type="radio" name="order-type" value="delivery"> Delivery</label>
+        <label><input type="radio" name="order-type" value="dine-in"> Dine-in</label>
+      </div>
+    </fieldset>
 
-  <!-- Payment Methods -->
-  <div class="payment-methods">
-    <input type="radio" name="pay" id="card" checked required>
-    <label for="card">💳 Card</label>
+    <fieldset>
+      <legend>Payment method</legend>
+      <div class="payment-methods">
+        <label><input type="radio" name="payment-method" value="card" checked> 💳 Card</label>
+        <label><input type="radio" name="payment-method" value="upi"> 📱 UPI</label>
+        <label><input type="radio" name="payment-method" value="netbanking"> 🏦 NetBanking</label>
+      </div>
+    </fieldset>
 
-    <input type="radio" name="pay" id="upi" required>
-    <label for="upi">📱 UPI</label>
-
-    <input type="radio" name="pay" id="netbanking">
-    <label for="netbanking">🏦 NetBanking</label>
-  </div>
-
-  <!-- Card Details -->
-  <form>
     <div class="input-group">
-      <label>Customer Name</label>
-      <input type="text" placeholder="enter your name">
+      <label for="customer-name">Customer Name</label>
+      <input id="customer-name" name="customer-name" type="text" autocomplete="name" placeholder="Enter your name" required>
     </div>
 
     <div class="input-group">
-      <label>Phone / UPI / Card Reference</label>
-      <input type="text" placeholder="enter phone, UPI ID, or card reference">
+      <label for="customer-phone">Phone / UPI / Card Reference</label>
+      <input id="customer-phone" name="customer-phone" type="text" autocomplete="tel" placeholder="Enter phone, UPI ID, or card reference" required>
     </div>
 
     <div class="row">
       <div class="input-group">
-        <label>Expiry</label>
-        <input type="text" placeholder="MM/YY">
+        <label for="pickup-time">Pickup time</label>
+        <input id="pickup-time" name="pickup-time" type="time">
       </div>
-
       <div class="input-group">
-        <label>CVV</label>
-        <input type="password" placeholder="enter the cvv">
+        <label for="pincode">Pincode</label>
+        <input id="pincode" name="pincode" type="text" inputmode="numeric" placeholder="560038">
       </div>
     </div>
 
-    <button type="submit"><a href="index.html">Place order</a></button>
-  </form>
-</div>
+    <div class="input-group">
+      <label for="instructions">Special instructions</label>
+      <textarea id="instructions" name="instructions" placeholder="Allergies, delivery landmark, or table note"></textarea>
+    </div>
 
+    <button type="submit">Place order</button>
+  </form>
+  <a class="back-link" href="index.html">← Back to menu</a>
+</div>
 </body>
 </html>
