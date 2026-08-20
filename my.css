@@ -236,3 +236,38 @@ textarea { min-height: 130px; resize: vertical; }
   .split { display: block; }
   .reservation-section, .contact-box, .feature-card { padding: 24px; }
 }
+
+.page-shell { width: min(1180px, calc(100% - 32px)); margin: auto; padding: 58px 0 80px; }
+.page-hero { padding: 56px; border-radius: 38px; background: var(--latte); box-shadow: var(--shadow); margin-bottom: 34px; }
+.page-hero h1, .standalone-form h1 { font-family: 'Playfair Display', serif; color: var(--coffee); font-size: clamp(2.4rem, 6vw, 4.8rem); line-height: 1.05; }
+.page-hero p { max-width: 700px; color: var(--muted); margin-top: 14px; }
+.small-page-hero { padding: 42px; }
+.compact-links { margin-left: auto; }
+.link-button { border: 0; background: transparent; color: var(--caramel); font: inherit; font-weight: 800; cursor: pointer; }
+.filter-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+.filter-chip { border: 1px solid rgba(75, 46, 34, .16); background: var(--white); color: var(--coffee); padding: 10px 18px; border-radius: 999px; font-weight: 800; cursor: pointer; }
+.filter-chip.active, .filter-chip:hover { background: var(--coffee); color: var(--cream); }
+.menu-page-grid { margin-bottom: 40px; }
+.cart-layout { display: grid; grid-template-columns: 1.3fr .7fr; gap: 28px; align-items: start; }
+.cart-items { display: grid; gap: 16px; }
+.cart-item { display: grid; grid-template-columns: 1fr auto auto; gap: 18px; align-items: center; padding: 22px; border-radius: 24px; background: var(--white); box-shadow: var(--shadow); }
+.cart-item h2, .cart-summary h2, .account-grid h2 { font-family: 'Playfair Display', serif; color: var(--coffee); }
+.quantity-controls { display: inline-flex; align-items: center; gap: 12px; padding: 8px; border-radius: 999px; background: var(--latte); }
+.quantity-controls button { width: 30px; height: 30px; border: 0; border-radius: 50%; background: var(--coffee); color: var(--cream); cursor: pointer; }
+.cart-summary { position: sticky; top: 105px; padding: 26px; border-radius: 28px; background: var(--white); box-shadow: var(--shadow); }
+.coupon-row { display: flex; gap: 10px; margin: 10px 0 20px; }
+.coupon-row input { flex: 1; }
+.light-bill div { border-bottom-color: rgba(75, 46, 34, .12); }
+.full-btn { width: 100%; margin-top: 18px; }
+.standalone-form { margin-top: 40px; }
+.reservation-form label { color: var(--coffee); font-weight: 800; }
+.account-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+@media (max-width: 900px) {
+  .cart-layout, .account-grid { grid-template-columns: 1fr; }
+  .cart-summary { position: static; }
+}
+@media (max-width: 560px) {
+  .page-hero { padding: 28px; }
+  .cart-item { grid-template-columns: 1fr; }
+  .coupon-row { flex-direction: column; }
+}

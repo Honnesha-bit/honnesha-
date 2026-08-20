@@ -21,13 +21,13 @@
       </a>
       <input class="nav-search" type="search" placeholder="Search coffee, cakes, snacks..." aria-label="Search menu">
       <ul class="nav-links">
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#reservation">Reserve</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reservation.html">Reserve</a></li>
         <li><a href="#offers">Offers</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="i.html">Login</a></li>
+        <li><a href="login.html">Login</a></li>
       </ul>
-      <a class="cart-chip" href="payment.html" aria-label="Open cart">🛒 Cart</a>
+      <a class="cart-chip" href="cart.html" aria-label="Open cart">🛒 Cart</a>
     </nav>
   </header>
 
@@ -38,8 +38,8 @@
         <h1>Crafted with passion, served with warmth.</h1>
         <p>Discover single-origin coffee, breakfast plates, desserts, and dine-in comfort at your neighborhood café.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#menu">Order Now</a>
-          <a class="btn btn-secondary" href="#reservation">Reserve Table</a>
+          <a class="btn btn-primary" href="menu.html">Order Now</a>
+          <a class="btn btn-secondary" href="reservation.html">Reserve Table</a>
         </div>
         <div class="hero-stats" aria-label="Café highlights">
           <span><strong>35+</strong> menu items</span>
@@ -85,7 +85,7 @@
             <div class="product-meta"><span>Coffee</span><span>12 min</span></div>
             <h3>Cappuccino</h3>
             <p>Espresso with steamed milk and creamy milk foam.</p>
-            <div class="price-row"><strong>₹149</strong><a href="payment.html">Add to cart</a></div>
+            <div class="price-row"><strong>₹149</strong><button class="link-button add-to-cart" type="button" data-name="Cappuccino" data-price="149">Add to cart</button></div>
           </div>
         </article>
         <article class="product-card">
@@ -94,7 +94,7 @@
             <div class="product-meta"><span>Breakfast</span><span>8 min</span></div>
             <h3>Butter Croissant</h3>
             <p>Flaky, golden pastry served with house berry preserve.</p>
-            <div class="price-row"><strong>₹129</strong><a href="payment.html">Add to cart</a></div>
+            <div class="price-row"><strong>₹129</strong><button class="link-button add-to-cart" type="button" data-name="Butter Croissant" data-price="129">Add to cart</button></div>
           </div>
         </article>
         <article class="product-card">
@@ -103,7 +103,7 @@
             <div class="product-meta"><span>Dessert</span><span>Ready</span></div>
             <h3>Chocolate Truffle Cake</h3>
             <p>Layered cocoa sponge, ganache, and toasted cacao nibs.</p>
-            <div class="price-row"><strong>₹179</strong><a href="payment.html">Add to cart</a></div>
+            <div class="price-row"><strong>₹179</strong><button class="link-button add-to-cart" type="button" data-name="Chocolate Truffle Cake" data-price="179">Add to cart</button></div>
           </div>
         </article>
       </div>
@@ -186,5 +186,6 @@
   <footer class="site-footer">
     <p>© 2026 Honnesha Café. Built for online ordering, reservations, offers, reviews, and admin workflows.</p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honnesha Café | Reserve a Table</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="my.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+      <a class="brand" href="index.html"><span class="brand-mark">☕</span><span>Honnesha Café</span></a>
+      <ul class="nav-links compact-links"><li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li><li><a href="cart.html">Cart</a></li></ul>
+    </nav>
+  </header>
+  <main class="page-shell">
+    <section class="reservation-section standalone-form">
+      <div>
+        <p class="eyebrow">Reservations</p>
+        <h1>Book your favorite table</h1>
+        <p>Choose a date, time, guest count, and special request. We will confirm availability shortly.</p>
+      </div>
+      <form class="reservation-form" onsubmit="alert('Reservation request received!'); return false;">
+        <label for="reservation-date">Date</label>
+        <input id="reservation-date" name="reservation-date" type="date" required>
+        <label for="reservation-time">Time</label>
+        <input id="reservation-time" name="reservation-time" type="time" required>
+        <label for="reservation-guests">Guests</label>
+        <input id="reservation-guests" name="reservation-guests" type="number" min="1" max="12" placeholder="4" required>
+        <label for="reservation-name">Name</label>
+        <input id="reservation-name" name="reservation-name" type="text" autocomplete="name" required>
+        <label for="reservation-phone">Phone</label>
+        <input id="reservation-phone" name="reservation-phone" type="tel" autocomplete="tel" required>
+        <label for="reservation-note">Special request</label>
+        <textarea id="reservation-note" name="reservation-note" placeholder="Window table, birthday setup, high chair..."></textarea>
+        <button class="btn btn-primary" type="submit">Reserve Table</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
