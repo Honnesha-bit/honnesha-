@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AeroWorld | Payment</title>
+<title>Honnesha Café | Checkout</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Google Font -->
@@ -20,7 +20,7 @@
 /* ===== BODY ===== */
 body{
   min-height:100vh;
-  background:linear-gradient(135deg,#0b0f1a,#11162a);
+  background:linear-gradient(135deg,#24150f,#4b2e22);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -30,17 +30,17 @@ body{
 .payment-box{
   width:100%;
   max-width:420px;
-  background:#0b0f1a;
+  background:#fffdf9;
   padding:35px;
   border-radius:20px;
   box-shadow:0 25px 50px rgba(0,0,0,0.6);
-  color:#fff;
+  color:#2a1a13;
 }
 
 /* ===== TITLE ===== */
 .payment-box h2{
   text-align:center;
-  color:#4dd2ff;
+  color:#c77735;
   margin-bottom:10px;
 }
 
@@ -59,7 +59,7 @@ body{
 }
 
 .payment-methods label{
-  background:#11162a;
+  background:#faf7f2;
   padding:10px 14px;
   border-radius:12px;
   cursor:pointer;
@@ -72,8 +72,8 @@ body{
 }
 
 .payment-methods input:checked + label{
-  border-color:#4dd2ff;
-  color:#4dd2ff;
+  border-color:#c77735;
+  color:#c77735;
 }
 
 /* ===== INPUTS ===== */
@@ -92,8 +92,8 @@ body{
   padding:12px;
   border:none;
   border-radius:10px;
-  background:#11162a;
-  color:#fff;
+  background:#faf7f2;
+  color:#2a1a13;
   outline:none;
 }
 
@@ -110,7 +110,7 @@ button{
   margin-top:10px;
   border:none;
   border-radius:30px;
-  background:#4dd2ff;
+  background:#c77735;
   color:#000;
   font-size:16px;
   font-weight:600;
@@ -134,8 +134,8 @@ a{
 <body>
 
 <div class="payment-box">
-  <h2>Payment</h2>
-  <p>Secure your travel booking</p>
+  <h2>Café Checkout</h2>
+  <p>Choose pickup, delivery, or dine-in and pay securely</p>
 
   <!-- Payment Methods -->
   <div class="payment-methods">
@@ -152,13 +152,13 @@ a{
   <!-- Card Details -->
   <form>
     <div class="input-group">
-      <label>Card Holder Name</label>
-      <input type="text" placeholder="enter the name ">
+      <label>Customer Name</label>
+      <input type="text" placeholder="enter your name">
     </div>
 
     <div class="input-group">
-      <label>Card Number</label>
-      <input type="text" placeholder="enter the card number">
+      <label>Phone / UPI / Card Reference</label>
+      <input type="text" placeholder="enter phone, UPI ID, or card reference">
     </div>
 
     <div class="row">
@@ -173,7 +173,7 @@ a{
       </div>
     </div>
 
-    <button type="submit"><a href="index.html">pay</a></button>
+    <button type="submit"><a href="index.html">Place order</a></button>
   </form>
 </div>
 

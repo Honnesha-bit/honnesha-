@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Login Page</title>
+<title>Honnesha Café | Login</title>
 
 <style>
 /* ===== RESET ===== */
@@ -16,7 +16,7 @@
 /* ===== BACKGROUND ===== */
 body {
   height: 100vh;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  background: linear-gradient(135deg, #4b2e22, #c77735);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +83,7 @@ body {
 .input-box input:valid ~ label {
   top: -10px;
   font-size: 12px;
-  color: #00eaff;
+  color: #f29d4b;
 }
 
 /* ===== BUTTON ===== */
@@ -92,7 +92,7 @@ button {
   padding: 12px;
   border: none;
   border-radius: 25px;
-  background: #00eaff;
+  background: #f29d4b;
   color: #000;
   font-size: 16px;
   font-weight: bold;
@@ -101,7 +101,7 @@ button {
 }
 
 button:hover {
-  background: #00bcd4;
+  background: #c77735;
 }
 
 /* ===== EXTRA LINKS ===== */
@@ -112,7 +112,7 @@ button:hover {
 }
 
 .extra a {
-  color: #00eaff;
+  color: #f29d4b;
   text-decoration: none;
 }
 </style>
@@ -122,7 +122,7 @@ button:hover {
 
 <div class="login-box">
   <h2>Welcome Back</h2>
-  <p>Login to continue</p>
+  <p>Login to order coffee, view reservations, and track your favorites</p>
 
   <form onsubmit="return login()">
     <div class="input-box">
@@ -134,11 +134,12 @@ button:hover {
       <input type="password" id="password" required>
       <label>Password</label>
     </div>
-    <button onclick="alert('sucess fully log in' )"><a href="index.html">Log In</a></button>
+    <button type="submit">Log In</button>
     <div class="extra">
       <p>New user? <a href="register.html">Register</a></p>
     </div>
   </form>
+  <script>function login(){ window.location.href = "index.html"; return false; }</script>
 </div>
 </body>
 </html>
