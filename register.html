@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AeroWorld | User Registration</title>
+<title>Honnesha Café | User Registration</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Google Font -->
@@ -22,7 +22,7 @@ body{
   min-height:100vh;
   background:
     linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    url("https://images.unsplash.com/photo-1488646953014-85cb44e25828");
+    url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=85");
   background-size:cover;
   background-position:center;
   display:flex;
@@ -46,7 +46,7 @@ body{
 .register-box h2{
   text-align:center;
   font-size:32px;
-  color:#4dd2ff;
+  color:#c77735;
 }
 
 .register-box p{
@@ -88,7 +88,7 @@ body{
 .input-group input:valid + label{
   top:-6px;
   font-size:12px;
-  color:#4dd2ff;
+  color:#c77735;
 }
 
 /* ================= BUTTON ================= */
@@ -97,7 +97,7 @@ button{
   padding:14px;
   border:none;
   border-radius:30px;
-  background:#4dd2ff;
+  background:#c77735;
   color:#000;
   font-size:16px;
   font-weight:600;
@@ -106,7 +106,7 @@ button{
 }
 
 button:hover{
-  background:#2bb6e8;
+  background:#a85f28;
 }
 
 /* ================= LOGIN LINK ================= */
@@ -117,7 +117,7 @@ button:hover{
 }
 
 .login-link a{
-  color:#4dd2ff;
+  color:#c77735;
   text-decoration:none;
   font-weight:600;
 }
@@ -151,39 +151,39 @@ a{
 
 <div class="register-box">
   <h2>Create Account</h2>
-  <p>Join AeroWorld & explore the globe 🌍</p>
+  <p>Join Honnesha Café to order online, reserve tables, and save favorites ☕</p>
 
-  <form>
+  <form onsubmit="window.location.href = 'index.html'; return false;">
     <div class="input-group">
-      <input type="text" required>
-      <label>Full Name</label>
+      <input type="text" id="full-name" name="full-name" autocomplete="name" required>
+      <label for="full-name">Full Name</label>
     </div>
 
     <div class="input-group">
-      <input type="email" required>
-      <label>Email Address</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+      <label for="email">Email Address</label>
     </div>
 
     <div class="input-group">
-      <input type="tel" required>
-      <label>Mobile Number</label>
+      <input type="tel" id="mobile" name="mobile" autocomplete="tel" required>
+      <label for="mobile">Mobile Number</label>
     </div>
 
     <div class="input-group">
-      <input type="password" required>
-      <label>Password</label>
+      <input type="password" id="new-password" name="new-password" autocomplete="new-password" required>
+      <label for="new-password">Password</label>
     </div>
 
     <div class="input-group">
-      <input type="password" required>
-      <label>Confirm Password</label>
+      <input type="password" id="confirm-password" name="confirm-password" autocomplete="new-password" required>
+      <label for="confirm-password">Confirm Password</label>
     </div>
 
-   <button type="submit"><a href="index.html">Registe</a></button>
+   <button type="submit">Register</button>
 
     <div class="login-link">
       Already have an account?
-      <a href="index.html">Login</a>
+      <a href="login.html">Login</a>
     </div>
   </form>
 </div>

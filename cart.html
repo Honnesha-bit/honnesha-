@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honnesha Café | Cart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="my.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+      <a class="brand" href="index.html"><span class="brand-mark">☕</span><span>Honnesha Café</span></a>
+      <ul class="nav-links compact-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reservation.html">Reserve</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="page-shell">
+    <section class="page-hero small-page-hero">
+      <p class="eyebrow">Shopping cart</p>
+      <h1>Your café order</h1>
+      <p>Review quantities, add a coupon, and continue to secure checkout.</p>
+    </section>
+    <section class="cart-layout">
+      <div class="cart-items" id="cart-items" aria-live="polite"></div>
+      <aside class="cart-summary">
+        <h2>Order summary</h2>
+        <label for="coupon-code">Coupon</label>
+        <div class="coupon-row">
+          <input id="coupon-code" type="text" placeholder="Try CAFE10">
+          <button class="btn btn-secondary" type="button" id="apply-coupon">Apply</button>
+        </div>
+        <dl class="bill light-bill">
+          <div><dt>Subtotal</dt><dd id="subtotal">₹0</dd></div>
+          <div><dt>Discount</dt><dd id="discount">₹0</dd></div>
+          <div><dt>Delivery</dt><dd id="delivery">₹40</dd></div>
+          <div><dt>Tax</dt><dd id="tax">₹0</dd></div>
+          <div class="total"><dt>Total</dt><dd id="total">₹0</dd></div>
+        </dl>
+        <a class="btn btn-primary full-btn" href="checkout.html">Checkout</a>
+      </aside>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

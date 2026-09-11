@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse Honnesha Café coffee, tea, breakfast, snacks, desserts, and cold drinks with quick add-to-cart actions.">
+  <title>Honnesha Café | Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="my.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+      <a class="brand" href="index.html"><span class="brand-mark">☕</span><span>Honnesha Café</span></a>
+      <input class="nav-search" id="menu-search" type="search" placeholder="Search the menu..." aria-label="Search menu">
+      <ul class="nav-links compact-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="reservation.html">Reserve</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="page-shell">
+    <section class="page-hero">
+      <p class="eyebrow">Complete menu</p>
+      <h1>Order fresh café favorites</h1>
+      <p>Choose coffee, tea, cold drinks, breakfast, snacks, and desserts. Add items to your cart and continue to checkout.</p>
+    </section>
+    <section class="filter-bar" aria-label="Menu categories">
+      <button class="filter-chip active" type="button" data-filter="all">All</button>
+      <button class="filter-chip" type="button" data-filter="coffee">Coffee</button>
+      <button class="filter-chip" type="button" data-filter="breakfast">Breakfast</button>
+      <button class="filter-chip" type="button" data-filter="dessert">Desserts</button>
+      <button class="filter-chip" type="button" data-filter="cold">Cold Drinks</button>
+    </section>
+    <section class="menu-grid menu-page-grid" id="menu-list">
+      <article class="product-card menu-item" data-category="coffee" data-name="Cappuccino">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=80" alt="Cappuccino in a ceramic cup">
+        <div><div class="product-meta"><span>Coffee</span><span>12 min</span></div><h2>Cappuccino</h2><p>Espresso with steamed milk and creamy milk foam.</p><div class="price-row"><strong>₹149</strong><button class="link-button add-to-cart" type="button" data-name="Cappuccino" data-price="149">Add</button></div></div>
+      </article>
+      <article class="product-card menu-item" data-category="coffee" data-name="Iced Mocha">
+        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=80" alt="Iced mocha coffee">
+        <div><div class="product-meta"><span>Cold</span><span>10 min</span></div><h2>Iced Mocha</h2><p>Cold espresso, cocoa, milk, and ice.</p><div class="price-row"><strong>₹169</strong><button class="link-button add-to-cart" type="button" data-name="Iced Mocha" data-price="169">Add</button></div></div>
+      </article>
+      <article class="product-card menu-item" data-category="breakfast" data-name="Butter Croissant">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="Fresh croissant on a café table">
+        <div><div class="product-meta"><span>Breakfast</span><span>8 min</span></div><h2>Butter Croissant</h2><p>Flaky pastry served with house berry preserve.</p><div class="price-row"><strong>₹129</strong><button class="link-button add-to-cart" type="button" data-name="Butter Croissant" data-price="129">Add</button></div></div>
+      </article>
+      <article class="product-card menu-item" data-category="dessert" data-name="Chocolate Truffle Cake">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80" alt="Chocolate cake slice">
+        <div><div class="product-meta"><span>Dessert</span><span>Ready</span></div><h2>Chocolate Truffle Cake</h2><p>Layered cocoa sponge, ganache, and cacao nibs.</p><div class="price-row"><strong>₹179</strong><button class="link-button add-to-cart" type="button" data-name="Chocolate Truffle Cake" data-price="179">Add</button></div></div>
+      </article>
+      <article class="product-card menu-item" data-category="cold" data-name="Mango Cooler">
+        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80" alt="Cold fruit drink with ice">
+        <div><div class="product-meta"><span>Cold Drink</span><span>7 min</span></div><h2>Mango Cooler</h2><p>Mango, lime, mint, soda, and crushed ice.</p><div class="price-row"><strong>₹139</strong><button class="link-button add-to-cart" type="button" data-name="Mango Cooler" data-price="139">Add</button></div></div>
+      </article>
+      <article class="product-card menu-item" data-category="breakfast" data-name="Veg Sandwich">
+        <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=900&q=80" alt="Grilled vegetable sandwich">
+        <div><div class="product-meta"><span>Snack</span><span>15 min</span></div><h2>Veg Sandwich</h2><p>Grilled vegetables, cheese, herbs, and café sauce.</p><div class="price-row"><strong>₹189</strong><button class="link-button add-to-cart" type="button" data-name="Veg Sandwich" data-price="189">Add</button></div></div>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
