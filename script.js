@@ -1,116 +1,27 @@
-const CART_KEY = 'honneshaCafeCart';
+const CART_KEY = 'shopkartCart';
+const rupees = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
+const readCart = () => { try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch { return []; } };
+const writeCart = (cart) => localStorage.setItem(CART_KEY, JSON.stringify(cart));
+const money = (amount) => rupees.format(Math.round(amount));
 
-function readCart() {
-  try {
-    return JSON.parse(localStorage.getItem(CART_KEY)) || [];
-  } catch {
-    return [];
-  }
-}
-
-function writeCart(cart) {
-  localStorage.setItem(CART_KEY, JSON.stringify(cart));
-}
-
-function formatRupees(amount) {
-  return `₹${Math.round(amount)}`;
-}
-
-function addToCart(name, price) {
-  const cart = readCart();
-  const item = cart.find((entry) => entry.name === name);
-  if (item) {
-    item.quantity += 1;
-  } else {
-    cart.push({ name, price: Number(price), quantity: 1 });
-  }
-  writeCart(cart);
-  alert(`${name} added to cart`);
-}
-
-function updateQuantity(name, change) {
-  const cart = readCart()
-    .map((item) => item.name === name ? { ...item, quantity: item.quantity + change } : item)
-    .filter((item) => item.quantity > 0);
-  writeCart(cart);
-  renderCart();
-}
-
+function updateCartCount() { const count = readCart().reduce((sum, item) => sum + item.quantity, 0); document.querySelectorAll('.cart-count').forEach((el) => { el.textContent = count; }); }
+function addToCart(item) { const cart = readCart(); const existing = cart.find((entry) => entry.id === item.id); if (existing) existing.quantity += 1; else cart.push({ ...item, price: Number(item.price), quantity: 1 }); writeCart(cart); updateCartCount(); }
+function updateQuantity(id, change) { const cart = readCart().map((item) => item.id === id ? { ...item, quantity: item.quantity + change } : item).filter((item) => item.quantity > 0); writeCart(cart); renderCart(); updateCartCount(); }
 function renderCart() {
-  const cartContainer = document.getElementById('cart-items');
-  if (!cartContainer) return;
-
+  const holder = document.getElementById('cart-items'); if (!holder) return;
   const cart = readCart();
-  if (cart.length === 0) {
-    cartContainer.innerHTML = '<article class="feature-card"><h2>Your cart is empty</h2><p>Add a coffee, snack, or dessert from the menu.</p><a class="btn btn-primary" href="menu.html">Browse menu</a></article>';
-  } else {
-    cartContainer.innerHTML = cart.map((item) => `
-      <article class="cart-item">
-        <div>
-          <h2>${item.name}</h2>
-          <p>${formatRupees(item.price)} each</p>
-        </div>
-        <div class="quantity-controls" aria-label="Quantity controls for ${item.name}">
-          <button type="button" data-name="${item.name}" data-change="-1">−</button>
-          <span>${item.quantity}</span>
-          <button type="button" data-name="${item.name}" data-change="1">+</button>
-        </div>
-        <strong>${formatRupees(item.price * item.quantity)}</strong>
-      </article>
-    `).join('');
-  }
-
-  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const coupon = document.getElementById('coupon-code')?.value.trim().toUpperCase();
-  const discount = coupon === 'CAFE10' ? subtotal * 0.1 : 0;
-  const delivery = subtotal > 0 ? 40 : 0;
-  const tax = (subtotal - discount) * 0.05;
-  const total = subtotal - discount + delivery + tax;
-
-  document.getElementById('subtotal').textContent = formatRupees(subtotal);
-  document.getElementById('discount').textContent = `-${formatRupees(discount)}`;
-  document.getElementById('delivery').textContent = formatRupees(delivery);
-  document.getElementById('tax').textContent = formatRupees(tax);
-  document.getElementById('total').textContent = formatRupees(total);
+  holder.innerHTML = cart.length ? cart.map((item) => `<article class="cart-item"><div><h2>${item.name}</h2><p>${money(item.price)} each</p></div><div class="quantity-controls" aria-label="Quantity controls for ${item.name}"><button type="button" data-cart-id="${item.id}" data-change="-1" aria-label="Remove one">−</button><span>${item.quantity}</span><button type="button" data-cart-id="${item.id}" data-change="1" aria-label="Add one">+</button></div><strong>${money(item.price * item.quantity)}</strong></article>`).join('') : '<article class="cart-item"><div><h2>Your cart is empty</h2><p>Browse ShopKart to add products you love.</p><a class="btn btn-primary" href="menu.html">Browse products</a></div></article>';
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0); const coupon = document.getElementById('coupon-code')?.value.trim().toUpperCase(); const discount = coupon === 'WELCOME10' ? Math.min(subtotal * .1, 500) : 0; const delivery = subtotal === 0 || subtotal >= 499 ? 0 : 49; const total = subtotal - discount + delivery;
+  [['subtotal', subtotal], ['discount', -discount], ['delivery', delivery], ['total', total]].forEach(([id, value]) => { const target = document.getElementById(id); if (target) target.textContent = value === 0 && id === 'delivery' ? 'FREE' : money(value); });
 }
-
-function setupMenuFilters() {
-  const search = document.getElementById('menu-search');
-  const chips = document.querySelectorAll('.filter-chip');
-  const items = document.querySelectorAll('.menu-item');
-  if (!items.length) return;
-
-  const applyFilters = () => {
-    const activeFilter = document.querySelector('.filter-chip.active')?.dataset.filter || 'all';
-    const query = search?.value.trim().toLowerCase() || '';
-    items.forEach((item) => {
-      const matchesCategory = activeFilter === 'all' || item.dataset.category === activeFilter;
-      const matchesSearch = item.dataset.name.toLowerCase().includes(query);
-      item.hidden = !(matchesCategory && matchesSearch);
-    });
-  };
-
-  chips.forEach((chip) => chip.addEventListener('click', () => {
-    chips.forEach((entry) => entry.classList.remove('active'));
-    chip.classList.add('active');
-    applyFilters();
-  }));
-  search?.addEventListener('input', applyFilters);
+function setupCatalog() {
+  const list = document.getElementById('product-list'); if (!list) return;
+  const params = new URLSearchParams(window.location.search); const query = params.get('category'); const initialSearch = params.get('search') || ''; const chips = document.querySelectorAll('.filter-chip'); const search = document.querySelector('#catalog-search input'); const sort = document.getElementById('sort-products'); const count = document.getElementById('product-count'); const empty = document.getElementById('empty-products');
+  if (search) search.value = initialSearch; let active = query || 'all'; const activate = () => chips.forEach((chip) => chip.classList.toggle('active', chip.dataset.filter === active));
+  const apply = () => { const phrase = search?.value.toLowerCase().trim() || ''; let visible = 0; [...list.children].forEach((item) => { const show = (active === 'all' || item.dataset.category === active) && item.dataset.name.toLowerCase().includes(phrase); item.hidden = !show; if (show) visible += 1; }); count.textContent = visible; empty.hidden = visible !== 0; };
+  chips.forEach((chip) => chip.addEventListener('click', () => { active = chip.dataset.filter; activate(); apply(); }));
+  search?.addEventListener('input', apply); sort?.addEventListener('change', () => { const products = [...list.children]; const value = sort.value; products.sort((a, b) => value === 'low' ? a.dataset.price - b.dataset.price : value === 'high' ? b.dataset.price - a.dataset.price : value === 'rating' ? b.dataset.rating - a.dataset.rating : 0); products.forEach((product) => list.append(product)); }); activate(); apply();
 }
-
-document.addEventListener('click', (event) => {
-  const addButton = event.target.closest('.add-to-cart');
-  if (addButton) {
-    addToCart(addButton.dataset.name, addButton.dataset.price);
-    return;
-  }
-
-  const quantityButton = event.target.closest('.quantity-controls button');
-  if (quantityButton) {
-    updateQuantity(quantityButton.dataset.name, Number(quantityButton.dataset.change));
-  }
-});
-
-document.getElementById('apply-coupon')?.addEventListener('click', renderCart);
-setupMenuFilters();
-renderCart();
+function setupCheckout() { const form = document.getElementById('checkout-form'); if (!form) return; form.addEventListener('submit', (event) => { event.preventDefault(); const orderId = `SK${Math.floor(100000 + Math.random() * 900000)}`; writeCart([]); updateCartCount(); form.closest('.checkout-panel').innerHTML = `<div class="order-success"><div class="success-icon">✓</div><h1>Order confirmed!</h1><p>Thanks for shopping with ShopKart.</p><p><strong>Order ID: ${orderId}</strong></p><p>We will send delivery updates to your phone and email.</p><a class="btn btn-primary" href="index.html">Continue shopping</a></div>`; }); }
+document.addEventListener('click', (event) => { const add = event.target.closest('.add-to-cart'); if (add) addToCart({ id: add.dataset.id, name: add.dataset.name, price: add.dataset.price }); const quantity = event.target.closest('[data-cart-id]'); if (quantity) updateQuantity(quantity.dataset.cartId, Number(quantity.dataset.change)); });
+document.getElementById('apply-coupon')?.addEventListener('click', renderCart); document.getElementById('global-search')?.addEventListener('submit', (event) => { event.preventDefault(); const q = new FormData(event.currentTarget).get('q'); window.location.href = `menu.html?search=${encodeURIComponent(q)}`; }); updateCartCount(); setupCatalog(); renderCart(); setupCheckout();
